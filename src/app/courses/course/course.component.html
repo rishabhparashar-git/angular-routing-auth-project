@@ -1,0 +1,36 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+  <div class="col" *ngFor="let course of courses">
+    <div class="card shadow-sm">
+      <img
+        width="100%"
+        height="100%"
+        [src]="course.image"
+        class="bd-placeholder-img card-img-top"
+        alt=""
+      />
+
+      <div class="card-body">
+        <h4 style="font-size: large">
+          {{ course.title }}
+        </h4>
+        <p class="card-text">
+          {{ course.description }}
+        </p>
+        <div class="d-flex justify-content-between align-items-end">
+          <div class="btn-group">
+            <button
+              (click)="goTo(course.id)"
+              [ngClass]="
+                course.id !== visitedId ? 'btn-primary' : 'btn-secondary'
+              "
+              class="btn btn-sm"
+            >
+              Read More
+            </button>
+          </div>
+          <small class="text-muted">{{ course.duration }}</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

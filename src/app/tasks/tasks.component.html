@@ -1,0 +1,11 @@
+<ul class="list-group">
+  <li
+    class="list-group-item"
+    [ngStyle]="{
+      'background-color': +task.id % 2 === 0 ? '#75E6DA' : '#D4F1F4'
+    }"
+    *ngFor="let task of tasks"
+  >
+    {{ task.description }}
+  </li>
+</ul>

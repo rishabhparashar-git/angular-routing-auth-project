@@ -1,0 +1,6 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+button {
+  margin: 0.25rem 0.5rem;
+  width: 8rem;
+}

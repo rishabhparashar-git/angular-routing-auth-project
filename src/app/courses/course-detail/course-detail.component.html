@@ -1,0 +1,30 @@
+<div class="container py-3">
+  <header>
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal">{{ course.title }}</h1>
+      <p class="fs-5 text-muted">{{ course.description }}</p>
+      <button (click)="goCourses()" class="btn btn-sm btn-secondary">
+        View All courses
+      </button>
+      <button
+        (click)="goPrevious()"
+        *ngIf="course.id > 1"
+        class="btn-success btn btn-sm"
+      >
+        Previous
+      </button>
+      <button
+        (click)="goNext()"
+        *ngIf="course.id < totalCourses"
+        class="btn-success btn btn-sm"
+      >
+        Next
+      </button>
+      <button (click)="showPricing(course.id)" class="btn btn-sm btn-secondary">
+        Show Pricing info
+      </button>
+      <br />
+    </div>
+  </header>
+  <router-outlet></router-outlet>
+</div>

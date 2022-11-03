@@ -1,0 +1,72 @@
+<nav>
+  <div class="container">
+    <header
+      class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-dark"
+    >
+      <a
+        href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+      >
+        <svg class="bi me-2" width="40" height="32">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4">SimpliLearn</span>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a
+            href="#"
+            routerLink="/home"
+            routerLinkActive="active"
+            class="nav-link active"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            href="#"
+            routerLink="/courses"
+            routerLinkActive="active"
+            class="nav-link"
+            >Courses</a
+          >
+        </li>
+        <li class="nav-item" *ngIf="!isAuthenticated; else alreadyLoggedIn">
+          <a
+            href="#"
+            routerLink="/login"
+            routerLinkActive="active"
+            class="nav-link"
+            >Login</a
+          >
+        </li>
+        <ng-template #alreadyLoggedIn>
+          <li class="nav-item">
+            <a
+              href="#"
+              routerLink="/admin"
+              routerLinkActive="active"
+              class="nav-link"
+              >Profile</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="#"
+              routerLink="/tasks"
+              routerLinkActive="active"
+              class="nav-link"
+              >Tasks</a
+            >
+          </li>
+          <li class="nav-item">
+            <button (click)="logout()" class="nav-link" style="cursor: pointer">
+              Logout
+            </button>
+          </li></ng-template
+        >
+      </ul>
+    </header>
+  </div>
+</nav>

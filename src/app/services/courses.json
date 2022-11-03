@@ -1,0 +1,20 @@
+{
+  "0": {
+    "description": "Get professionally certified in Product Management from SP Jain Global & become a part of their global Alumni network. Product Management course involves 4 months of live rigorous training from SP Jain's top faculty across Australia, Dubai, & India, along with live sessions from top product leaders.",
+    "duration": "4 months",
+    "image": "assets/ethicalhacking.jpg",
+    "title": "Professional Certification In Product Management"
+  },
+  "1": {
+    "description": "This AI program with Wharton Online gives you the competitive edge in emerging business technologies. The AI program delivers a foundational understanding of today’s top technologies, including big data, AI, and machine learning, and how you can use them to support your organization’s strategy.",
+    "duration": "6 Months",
+    "image": "assets/businessStrategies.jpg",
+    "title": "AI for Decision Making"
+  },
+  "2": {
+    "description": "Boost your career as a cybersecurity expert through this PCP in Ethical Hacking and Penetration Testing in collaboration with IIT Kanpur. In 6 months, you'll learn advanced offensive cybersecurity strategies to protect networks and data from breaches, theft, attacks, and more",
+    "duration": "9 Months",
+    "image": "assets/productmanagement.jpg",
+    "title": "Professional Certificate Program In Ethical Hacking"
+  }
+}
