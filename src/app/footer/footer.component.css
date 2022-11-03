@@ -1,11 +1,107 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
-p {
+/* p {
   margin: auto auto;
+} */
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #106cfc;
+  color: #fff;
+}
+.icon {
+  background-color: white;
 }
 .footer {
-  position: absolute;
+  --bg-color: black
+  --font-color: white
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 60vh;
+}
+.icon-container {
+  height: 20%;
+  padding-top: 2rem;
+}
+.info-container {
+  height: 40%;
+  display: flex;
+  padding-left: 5px;
+  padding-top: 3rem;
+}
+.contact-container {
+  height: 40%;
+  padding-top: 1rem;
+  padding: 5px;
+}
+.icon-container .icons {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  /* width: 50%; */
+  margin-right: 5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.icon-container .icon {
+  margin: 0 1.5rem;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+}
+
+.info-container > div {
+}
+.info {
+  display: flex;
+  width: 60%;
+}
+.info div {
+  margin: 0.5rem 0.5rem;
+}
+.data {
+  width: 60%;
+  font-weight: bolder;
+}
+.info .icon {
+  border-radius: 20%;
+  height: 4rem;
+  width: 4rem;
+}
+.options {
+  display: flex;
+  justify-content: center;
+  /* padding: 0.5rem 0.5rem; */
+  width: 40%;
+}
+.options li {
+  list-style: none;
+  margin: 0.5rem 0;
+}
+.contact-container p {
+  margin: 0.5rem;
+}
+.contact-container p:nth-child(1) {
+  font-weight: lighter;
+  opacity: 0.8;
+  font-size: 20px;
+  margin-bottom: 0.5rem;
+}
+.contact-container p:nth-child(2) {
+  margin-bottom: 1.5rem;
+  font-weight: bolder;
+  font-size: 25px;
+}
+.contact-container p:nth-child(3) {
+  opacity: 0.8;
+  font-size: 15px;
+  font-weight: normal;
+}
+.contact-container p:nth-child(4) {
+  font-size: 15px;
+  font-weight: lighter;
+  opacity: 0.6;
 }
