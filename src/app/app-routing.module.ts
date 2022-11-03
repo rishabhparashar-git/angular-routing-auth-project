@@ -8,6 +8,7 @@ import { FallbackComponent } from './fallback/fallback.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { PricingComponent } from './pricing/pricing.component';
+import { AuthGuard } from './services/auth/auth.guard';
 import { TasksComponent } from './tasks/tasks.component';
 
 const routes: Routes = [
@@ -15,8 +16,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'courses', component: CoursesComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'tasks', component: TasksComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
+  { path: 'tasks', component: TasksComponent, canActivate: [AuthGuard] },
   {
     path: 'courses/:courseId',
     component: CourseDetailComponent,

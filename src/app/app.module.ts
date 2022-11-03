@@ -22,6 +22,8 @@ import { FormsModule } from '@angular/forms';
 import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { TasksComponent } from './tasks/tasks.component';
 import { AuthInterceptorService } from './services/auth/auth-iterceptor.service';
+import { AlertComponent } from './alert/alert.component';
+import { PlaceholderDirective } from './directives/placeholder.directive';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { AuthInterceptorService } from './services/auth/auth-iterceptor.service'
     AdminComponent,
     LoadingSpinnerComponent,
     TasksComponent,
+    AlertComponent,
+    PlaceholderDirective,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [
@@ -52,5 +56,8 @@ import { AuthInterceptorService } from './services/auth/auth-iterceptor.service'
     },
   ],
   bootstrap: [AppComponent],
+  //entry components are the components which are eventually to be added programatically
+  //no need to add entry components in angular v9+, like here it can be ignored completely
+  entryComponents: [AlertComponent],
 })
 export class AppModule {}

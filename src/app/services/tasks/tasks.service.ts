@@ -10,7 +10,7 @@ export class TasksService {
 
   getTasks() {
     return this.http.get(
-      'https://angular-project-402b3-default-rtdb.firebaseio.com/tasks.json'
+      'https://angular-project-7010b-default-rtdb.firebaseio.com/tasks.json'
     );
   }
   // this.http.get()

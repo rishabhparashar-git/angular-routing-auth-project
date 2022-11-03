@@ -1,8 +1,14 @@
-<div class="form-component" *ngIf="!isLoading; else loadingSpinner">
-  <!-- <div class="btn-group grp">sdbfyusdghfyuiiivsbui</div> -->
+<ng-template appPlaceholder></ng-template>
+<div class="hideme form-component" *ngIf="!isLoading; else loadingSpinner">
+  <!-- alert   -->
+  <!-- <div class="alert alert-danger" *ngIf="error">{{ error }}</div> -->
+  <!-- <app-alert
+    [message]="error"
+    *ngIf="error"
+    (close)="closeHandler()"
+  ></app-alert> -->
 
   <!-- Login Form -->
-  <div class="alert alert-danger" *ngIf="error">{{ error }}</div>
   <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)">
     <div class="login">
       <!-- Email input -->

@@ -26,7 +26,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  private apiKey = 'AIzaSyChFz7tzhHJxjtOX5hBM-G-puEj32lVTr4';
+  private apiKey = 'AIzaSyDpO7wBspFXCzGd57OyGUm-b-C2K4OMmao';
 
   signup(email: string, password: string) {
     return this.http

@@ -1,20 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ComponentFactoryResolver,
+  ViewChild,
+  OnDestroy,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthService, AuthResponseData } from '../services/auth/auth.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+
+import { AlertComponent } from '../alert/alert.component';
+import { PlaceholderDirective } from '../directives/placeholder.directive';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+export class LoginComponent implements OnDestroy {
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private componentFactoryResolver: ComponentFactoryResolver
+  ) {}
 
-  ngOnInit(): void {}
+  private closeSubscription: Subscription;
 
   displayLogin: boolean = true;
+  @ViewChild(PlaceholderDirective, { static: false })
+  alertHost: PlaceholderDirective;
 
   switchMode() {
     this.displayLogin = !this.displayLogin;
@@ -46,9 +61,38 @@ export class LoginComponent implements OnInit {
       },
       (errorMessage) => {
         this.error = errorMessage;
+        this.showErrorAlert(errorMessage);
         this.isLoading = false;
       }
     );
     form.reset();
+  }
+
+  closeHandler() {
+    this.error = '';
+  }
+
+  private showErrorAlert(message: string) {
+    const alertCmpFactory =
+      this.componentFactoryResolver.resolveComponentFactory(AlertComponent);
+    const hostViewContainerRef = this.alertHost.viewContainerRef;
+    //here we are using the hostViewContainerRef to manipulate DOM
+    hostViewContainerRef.clear();
+    //Now we are creating a new component in the dom
+    //to create components like this in angular version lower than 9, you need to
+    //add the component in entryComponents in app.modules.ts @ngModules decorator
+    // stored in componentRef to access the input and output properties
+    const componentRef = hostViewContainerRef.createComponent(alertCmpFactory);
+
+    componentRef.instance.message = message;
+    this.closeSubscription = componentRef.instance.close.subscribe(() => {
+      this.closeSubscription.unsubscribe();
+      hostViewContainerRef.clear();
+    });
+  }
+  ngOnDestroy(): void {
+    if (this.closeSubscription) {
+      this.closeSubscription.unsubscribe();
+    }
   }
 }

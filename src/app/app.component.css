@@ -1,1 +1,5 @@
 @import "~bootstrap/dist/css/bootstrap.css";
+
+.holder {
+  min-height: 70vh;
+}
