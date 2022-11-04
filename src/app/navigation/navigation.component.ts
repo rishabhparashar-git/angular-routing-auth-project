@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navigation',
@@ -10,6 +11,8 @@ import { Subscription } from 'rxjs';
 export class NavigationComponent implements OnInit, OnDestroy {
   private userSub: Subscription;
   isAuthenticated = false;
+
+  backgroundColor = environment.navBarBackgroundColor;
 
   constructor(private authService: AuthService) {}
 
